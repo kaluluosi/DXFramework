@@ -4,58 +4,64 @@
 [ext_resource path="res://demo/beehave/entity/Flower.tscn" type="PackedScene" id=2]
 [ext_resource path="res://demo/beehave/entity/Home.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/beehave/nodes/beehave_root.gd" type="Script" id=4]
-[ext_resource path="res://addons/beehave/nodes/leaves/check_blackboard.gd" type="Script" id=5]
+[ext_resource path="res://demo/beehave/ai/action/MoveToPosition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://addons/beehave/nodes/decorators/inverter.gd" type="Script" id=6]
-[ext_resource path="res://addons/beehave/nodes/composites/sequence.gd" type="Script" id=7]
 [ext_resource path="res://addons/beehave/nodes/composites/selector.gd" type="Script" id=8]
-[ext_resource path="res://addons/beehave/nodes/leaves/wait.gd" type="Script" id=9]
+[ext_resource path="res://addons/beehave/nodes/composites/sequence_star.gd" type="Script" id=9]
 [ext_resource path="res://demo/beehave/ai/action/FindClosestFlower.tscn" type="PackedScene" id=10]
 [ext_resource path="res://demo/beehave/ai/action/MoveTo.tscn" type="PackedScene" id=11]
 [ext_resource path="res://demo/beehave/ai/action/RandomPosition.tscn" type="PackedScene" id=12]
+[ext_resource path="res://addons/beehave/debug/BeehaveDebug.tscn" type="PackedScene" id=13]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Bee" parent="." groups=["Bee"] instance=ExtResource( 1 )]
-position = Vector2( 147, 270 )
+position = Vector2( 119, 392 )
+z_index = 100
+speed = 100
+
+[node name="BeehaveDebug" parent="Bee" instance=ExtResource( 13 )]
+margin_left = -18.0
+margin_top = -32.0
+margin_right = 22.0
+margin_bottom = -18.0
+grow_horizontal = 2
+align = 1
+beehave_root = NodePath("../BeehaveRoot")
 
 [node name="BeehaveRoot" type="Node" parent="Bee"]
 script = ExtResource( 4 )
+enabled = true
+actor_node_path = NodePath("..")
 
 [node name="Main" type="Node" parent="Bee/BeehaveRoot"]
 script = ExtResource( 8 )
 
-[node name="FindClosestFlower" parent="Bee/BeehaveRoot/Main" instance=ExtResource( 10 )]
-key = "closest_flower"
-
-[node name="Gather" type="Node" parent="Bee/BeehaveRoot/Main"]
-script = ExtResource( 7 )
-
-[node name="HasClosestFlower" type="Node" parent="Bee/BeehaveRoot/Main/Gather"]
-script = ExtResource( 5 )
-key = "closest_flower"
-
-[node name="MoveTo" parent="Bee/BeehaveRoot/Main/Gather" instance=ExtResource( 11 )]
-
-[node name="Gathering" type="Node" parent="Bee/BeehaveRoot/Main/Gather"]
+[node name="GatherIfFoundFlower" type="Node" parent="Bee/BeehaveRoot/Main"]
 script = ExtResource( 9 )
-__meta__ = {
-"_editor_description_": "采蜜！！！！"
-}
-wait_time = 100.0
 
-[node name="Patrol" type="Node" parent="Bee/BeehaveRoot/Main"]
-script = ExtResource( 7 )
+[node name="FindClosestFlower" parent="Bee/BeehaveRoot/Main/GatherIfFoundFlower" instance=ExtResource( 10 )]
+key = "closest_flower"
 
-[node name="Inverter" type="Node" parent="Bee/BeehaveRoot/Main/Patrol"]
+[node name="MoveToFlower" parent="Bee/BeehaveRoot/Main/GatherIfFoundFlower" instance=ExtResource( 11 )]
+key = "closest_flower"
+distance = 1.0
+
+[node name="PatrolIfNotFoundFlower" type="Node" parent="Bee/BeehaveRoot/Main"]
+script = ExtResource( 9 )
+
+[node name="Inverter" type="Node" parent="Bee/BeehaveRoot/Main/PatrolIfNotFoundFlower"]
 script = ExtResource( 6 )
 
-[node name="HasClosestFlower" type="Node" parent="Bee/BeehaveRoot/Main/Patrol/Inverter"]
-script = ExtResource( 5 )
+[node name="FindClosestFlower" parent="Bee/BeehaveRoot/Main/PatrolIfNotFoundFlower/Inverter" instance=ExtResource( 10 )]
 key = "closest_flower"
 
-[node name="RandomPosition" parent="Bee/BeehaveRoot/Main/Patrol" instance=ExtResource( 12 )]
+[node name="RandomPosition" parent="Bee/BeehaveRoot/Main/PatrolIfNotFoundFlower" instance=ExtResource( 12 )]
+key = "patrol_pos"
 
-[node name="MoveTo" parent="Bee/BeehaveRoot/Main/Patrol" instance=ExtResource( 11 )]
+[node name="MoveToPosition" parent="Bee/BeehaveRoot/Main/PatrolIfNotFoundFlower" instance=ExtResource( 5 )]
+key = "patrol_pos"
+distance = 1.0
 
 [node name="Flower" parent="." instance=ExtResource( 2 )]
 position = Vector2( 275, 133 )

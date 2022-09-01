@@ -24,10 +24,3 @@ func erase(key, blackboard_name = 'default'):
 	if blackboard.has(blackboard_name):
 		 blackboard[blackboard_name][key] = null
 
-func _get(property: String):
-	return get(property)
-
-
-func _set(property: String, value) -> bool:
-	set(property, value)
-	return true

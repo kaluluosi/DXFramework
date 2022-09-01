@@ -9,7 +9,6 @@
 radius = 137.525
 
 [node name="Bee" type="KinematicBody2D"]
-collision_layer = 0
 collision_mask = 0
 script = ExtResource( 2 )
 __meta__ = {

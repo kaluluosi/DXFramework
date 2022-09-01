@@ -5,7 +5,6 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="Flower" type="Area2D" groups=["Flower"]]
-collision_layer = 0
 collision_mask = 0
 __meta__ = {
 "_editor_description_": "We don't need collision"

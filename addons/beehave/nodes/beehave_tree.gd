@@ -1,8 +1,8 @@
 extends Node
-class_name BeehaveTree, '../icons/icon.png'
+class_name BeehaveTree,  '../icons/icon.png'
 
 func _ready():
-	if get_script() == load('res://addons/BeeHave/nodes/beehave_tree.gd'):
+	if get_script() == load('res://addons/beehave/nodes/beehave_tree.gd'):
 		push_error("BeehaveTree node is useless, don't instance it! Use BeehaveRoot insteal.")
 		breakpoint
 

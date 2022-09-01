@@ -18,5 +18,5 @@ func tick(actor:Bee, blackboard:Blackboard) -> int:
 			distance = dist
 			closest = f
 
-	blackboard[key] = closest
+	blackboard.set(key, closest)
 	return SUCCESS

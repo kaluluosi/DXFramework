@@ -13,7 +13,7 @@ func tick(actor, blackboard:Blackboard) -> int:
 
 	match check:
 		Check.NOT_NULL:
-			if blackboard[key]:
+			if key in blackboard and blackboard[key]:
 				return SUCCESS
 			else:
 				return FAILED

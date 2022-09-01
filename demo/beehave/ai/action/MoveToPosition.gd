@@ -6,13 +6,12 @@ export var distance:float = 10
 
 func tick(actor:Bee, blackboard:Blackboard) -> int:
 
-	var target = blackboard.get(key)
-
-	if not target:
-		return FAILED
-
-	var result = actor.move_to(target, distance)
-	if result:
-		return SUCCESS
+	var pos = blackboard.get(key)
+	if pos:
+		var result = actor.move_to_position(pos,distance)
+		if result:
+			return SUCCESS
+		else:
+			return RUNNING
 	else:
-		return RUNNING
+		return FAILED
