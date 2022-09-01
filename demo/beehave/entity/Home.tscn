@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://demo/beehave/entity/Home.gd" type="Script" id=1]
+
+[sub_resource type="QuadMesh" id=1]
+size = Vector2( 40, 40 )
+
+[node name="Home" type="MeshInstance2D"]
+modulate = Color( 1, 0.960784, 0, 1 )
+mesh = SubResource( 1 )
+script = ExtResource( 1 )
