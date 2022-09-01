@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/inverter.svg-9f9770e7a572b48b31a021ecbf2e8793.stex"
+path="res://.import/inverter.svg-1f1b976d95de42c4ad99a92fa9a6c5d0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BeeHave/icons/inverter.svg"
-dest_files=[ "res://.import/inverter.svg-9f9770e7a572b48b31a021ecbf2e8793.stex" ]
+source_file="res://addons/beehave/icons/inverter.svg"
+dest_files=[ "res://.import/inverter.svg-1f1b976d95de42c4ad99a92fa9a6c5d0.stex" ]
 
 [params]
 

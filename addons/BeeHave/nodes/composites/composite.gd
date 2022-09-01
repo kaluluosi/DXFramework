@@ -1,6 +1,6 @@
 extends BeehaveNode
 
-class_name Composite, '../../icons/category_composite.svg'
+class_name Composite,  '../../icons/category_composite.svg'
 
 
 func _ready():

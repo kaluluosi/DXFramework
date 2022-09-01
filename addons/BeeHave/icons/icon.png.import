@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-21f2f859a688b3009491d54ee4014657.stex"
+path="res://.import/icon.png-ed01c9b85eb42440dc20f657ad83ec20.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BeeHave/icons/icon.png"
-dest_files=[ "res://.import/icon.png-21f2f859a688b3009491d54ee4014657.stex" ]
+source_file="res://addons/beehave/icons/icon.png"
+dest_files=[ "res://.import/icon.png-ed01c9b85eb42440dc20f657ad83ec20.stex" ]
 
 [params]
 

@@ -1,7 +1,7 @@
 tool
 extends BeehaveTree
 
-class_name BeehaveRoot, '../icons/tree.svg'
+class_name BeehaveRoot,  '../icons/tree.svg'
 
 enum {
 SUCCESS = 0
@@ -27,10 +27,7 @@ func _ready():
 	if Engine.editor_hint:
 		return
 
-	if self.get_child_count() != 1:
-		push_error("Beehave error: Root should have one child")
-		self.enabled = false
-		return
+	assert(get_child_count(), 'Beehave error: Root should have one child')
 
 	set_enable(enabled)
 
@@ -53,6 +50,7 @@ func _physics_process(delta):
 		tick(delta)
 
 func tick(delta):
+
 	blackboard.set("delta", delta)
 
 	var status = self.get_child(0).tick(actor, blackboard)
