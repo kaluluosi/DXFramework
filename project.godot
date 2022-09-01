@@ -1,0 +1,177 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Leaf",
+"class": "Action",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/leaves/action.gd"
+}, {
+"base": "Decorator",
+"class": "AlwaysFail",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/decorators/failer.gd"
+}, {
+"base": "Decorator",
+"class": "AlwaysSucceed",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/decorators/succeeder.gd"
+}, {
+"base": "BeehaveTree",
+"class": "BeehaveNode",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/beehave_node.gd"
+}, {
+"base": "BeehaveTree",
+"class": "BeehaveRoot",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/beehave_root.gd"
+}, {
+"base": "Node",
+"class": "BeehaveTree",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/beehave_tree.gd"
+}, {
+"base": "Reference",
+"class": "Blackboard",
+"language": "GDScript",
+"path": "res://addons/BeeHave/blackboard.gd"
+}, {
+"base": "Condition",
+"class": "CheckBlackboard",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/leaves/check_blackboard.gd"
+}, {
+"base": "BeehaveNode",
+"class": "Composite",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/composites/composite.gd"
+}, {
+"base": "Leaf",
+"class": "Condition",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/leaves/condition.gd"
+}, {
+"base": "BeehaveNode",
+"class": "Decorator",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/decorators/decorator.gd"
+}, {
+"base": "Node",
+"class": "FSM",
+"language": "GDScript",
+"path": "res://addons/FSM/src/FSM.gd"
+}, {
+"base": "Decorator",
+"class": "Inverter",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/decorators/inverter.gd"
+}, {
+"base": "BeehaveNode",
+"class": "Leaf",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/leaves/leaf.gd"
+}, {
+"base": "Decorator",
+"class": "Limiter",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/decorators/limiter.gd"
+}, {
+"base": "Action",
+"class": "LogAction",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/leaves/log.gd"
+}, {
+"base": "Composite",
+"class": "Selector",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/composites/selector.gd"
+}, {
+"base": "Composite",
+"class": "SelectorStar",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/composites/selector_star.gd"
+}, {
+"base": "Composite",
+"class": "Sequence",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/composites/sequence.gd"
+}, {
+"base": "Composite",
+"class": "SequenceStar",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/composites/sequence_star.gd"
+}, {
+"base": "FSM",
+"class": "State",
+"language": "GDScript",
+"path": "res://addons/FSM/src/State.gd"
+}, {
+"base": "FSM",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://addons/FSM/src/StateMachine.gd"
+}, {
+"base": "State",
+"class": "SubStateMachine",
+"language": "GDScript",
+"path": "res://addons/FSM/src/SubStateMachine.gd"
+}, {
+"base": "Action",
+"class": "WaitAction",
+"language": "GDScript",
+"path": "res://addons/BeeHave/nodes/leaves/wait.gd"
+} ]
+_global_script_class_icons={
+"Action": "",
+"AlwaysFail": "res://addons/BeeHave/icons/fail.svg",
+"AlwaysSucceed": "res://addons/BeeHave/icons/succeed.svg",
+"BeehaveNode": "res://addons/BeeHave/icons/action.svg",
+"BeehaveRoot": "res://addons/BeeHave/icons/tree.svg",
+"BeehaveTree": "res://addons/BeeHave/icons/icon.png",
+"Blackboard": "",
+"CheckBlackboard": "",
+"Composite": "res://addons/BeeHave/icons/category_composite.svg",
+"Condition": "res://addons/BeeHave/icons/condition.svg",
+"Decorator": "res://addons/BeeHave/icons/category_decorator.svg",
+"FSM": "res://addons/FSM/asset/statemachine.svg",
+"Inverter": "res://addons/BeeHave/icons/inverter.svg",
+"Leaf": "res://addons/BeeHave/icons/action.svg",
+"Limiter": "res://addons/BeeHave/icons/limiter.svg",
+"LogAction": "res://addons/BeeHave/icons/log.svg",
+"Selector": "res://addons/BeeHave/icons/selector.svg",
+"SelectorStar": "res://addons/BeeHave/icons/selector_star.svg",
+"Sequence": "res://addons/BeeHave/icons/sequencer.svg",
+"SequenceStar": "res://addons/BeeHave/icons/sequencer_star.svg",
+"State": "res://addons/FSM/asset/state.svg",
+"StateMachine": "res://addons/FSM/asset/statemachine.svg",
+"SubStateMachine": "res://addons/FSM/asset/statemachine.svg",
+"WaitAction": ""
+}
+
+[application]
+
+config/name="Dx Framework"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/BeeHave/plugin.cfg", "res://addons/FSM/plugin.cfg" )
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
