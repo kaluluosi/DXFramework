@@ -24,5 +24,14 @@ speed = 100
 [node name="Flower" parent="." instance=ExtResource( 2 )]
 position = Vector2( 275, 133 )
 
+[node name="Flower2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 406, 258 )
+
+[node name="Flower3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 110, 70 )
+
+[node name="Flower4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 392, 72 )
+
 [node name="Home" parent="." groups=["Home"] instance=ExtResource( 3 )]
 position = Vector2( 32, 444 )
