@@ -1,7 +1,9 @@
 extends Action
 const Bee = preload("res://demo/beehave/entity/Bee.gd")
+const Flower = preload('res://demo/beehave/entity/Flower.gd')
 
 export var key:String
+export(Flower.State) var state = Flower.State.GROW
 
 func tick(actor:Bee, blackboard:Blackboard) -> int:
 
@@ -14,7 +16,7 @@ func tick(actor:Bee, blackboard:Blackboard) -> int:
 
 	for f in flowers:
 		var dist = actor.global_position.distance_to(f.global_position)
-		if dist < distance:
+		if dist < distance and f.state == state and not f.is_bee_inside():
 			distance = dist
 			closest = f
 

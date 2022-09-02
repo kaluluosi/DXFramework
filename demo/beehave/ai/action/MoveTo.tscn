@@ -2,5 +2,5 @@
 
 [ext_resource path="res://demo/beehave/ai/action/MoveTo.gd" type="Script" id=1]
 
-[node name="MoveToNode2D" type="Node"]
+[node name="MoveTo" type="Node"]
 script = ExtResource( 1 )

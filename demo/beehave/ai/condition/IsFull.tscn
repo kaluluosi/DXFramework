@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://demo/beehave/ai/condition/IsFull.gd" type="Script" id=1]
+
+[node name="IsFull" type="Node"]
+script = ExtResource( 1 )

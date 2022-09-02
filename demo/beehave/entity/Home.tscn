@@ -9,3 +9,14 @@ size = Vector2( 40, 40 )
 modulate = Color( 1, 0.960784, 0, 1 )
 mesh = SubResource( 1 )
 script = ExtResource( 1 )
+
+[node name="TakeOffTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_left = -32.0
+margin_top = -42.0
+margin_right = 35.0
+margin_bottom = -28.0
+
+[connection signal="timeout" from="TakeOffTimer" to="." method="_on_TakeOffTimer_timeout"]

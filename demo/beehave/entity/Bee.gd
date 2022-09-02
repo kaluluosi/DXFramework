@@ -9,6 +9,14 @@ var honey = 0
 var honey_per_sec = 10
 
 onready var flower_detector:Area2D = $FlowerDetector
+onready var behav:BeehaveRoot = $BeehaveRoot
+onready var progressbar:ProgressBar = $ProgressBar
+
+func is_full():
+	return honey >= max_honey
+
+func is_empty():
+	return honey == 0
 
 func _move(direction:Vector2):
 	velocity = direction*speed
@@ -36,7 +44,13 @@ func move_to_position(pos:Vector2, distance:float=30) -> bool:
 
 func get_flowers():
 	var areas = flower_detector.get_overlapping_areas()
+	var flowers = []
 	for area in areas:
-		if not area.is_in_group('Flower'):
-			areas.erase(area)
-	return areas
+		if area.is_in_group('Flower'):
+			flowers.append(area)
+	return flowers
+
+
+func _process(delta: float) -> void:
+	progressbar.max_value = max_honey
+	progressbar.value = honey
