@@ -1,6 +1,6 @@
 extends Decorator
 
-class_name Limiter,  '../../icons/limiter.svg'
+class_name Limiter,  "res://addons/beehave/icons/limiter.svg"
 
 onready var cache_key = 'limiter_%s' % self.get_instance_id()
 

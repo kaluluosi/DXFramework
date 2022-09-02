@@ -12,102 +12,107 @@ _global_script_classes=[ {
 "base": "Leaf",
 "class": "Action",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/leaves/action.gd"
+"path": "res://addons/beehave/src/nodes/leaves/action.gd"
 }, {
 "base": "Decorator",
 "class": "AlwaysFail",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/decorators/failer.gd"
+"path": "res://addons/beehave/src/nodes/decorators/failer.gd"
 }, {
 "base": "Decorator",
 "class": "AlwaysSucceed",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/decorators/succeeder.gd"
+"path": "res://addons/beehave/src/nodes/decorators/succeeder.gd"
 }, {
 "base": "BeehaveTree",
 "class": "BeehaveNode",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/beehave_node.gd"
+"path": "res://addons/beehave/src/nodes/beehave_node.gd"
 }, {
 "base": "BeehaveTree",
 "class": "BeehaveRoot",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/beehave_root.gd"
+"path": "res://addons/beehave/src/nodes/beehave_root.gd"
 }, {
 "base": "Node",
 "class": "BeehaveTree",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/beehave_tree.gd"
+"path": "res://addons/beehave/src/nodes/beehave_tree.gd"
 }, {
 "base": "Reference",
 "class": "Blackboard",
 "language": "GDScript",
-"path": "res://addons/beehave/blackboard.gd"
+"path": "res://addons/beehave/src/blackboard.gd"
 }, {
 "base": "Condition",
 "class": "CheckBlackboard",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/leaves/check_blackboard.gd"
+"path": "res://addons/beehave/src/nodes/leaves/check_blackboard.gd"
 }, {
 "base": "BeehaveNode",
 "class": "Composite",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/composites/composite.gd"
+"path": "res://addons/beehave/src/nodes/composites/composite.gd"
 }, {
 "base": "Leaf",
 "class": "Condition",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/leaves/condition.gd"
+"path": "res://addons/beehave/src/nodes/leaves/condition.gd"
 }, {
 "base": "BeehaveNode",
 "class": "Decorator",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/decorators/decorator.gd"
+"path": "res://addons/beehave/src/nodes/decorators/decorator.gd"
+}, {
+"base": "Node",
+"class": "HFSM",
+"language": "GDScript",
+"path": "res://addons/hfsm/src/hfsm.gd"
 }, {
 "base": "Decorator",
 "class": "Inverter",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/decorators/inverter.gd"
+"path": "res://addons/beehave/src/nodes/decorators/inverter.gd"
 }, {
 "base": "BeehaveNode",
 "class": "Leaf",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/leaves/leaf.gd"
+"path": "res://addons/beehave/src/nodes/leaves/leaf.gd"
 }, {
 "base": "Decorator",
 "class": "Limiter",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/decorators/limiter.gd"
+"path": "res://addons/beehave/src/nodes/decorators/limiter.gd"
 }, {
 "base": "Action",
 "class": "LogAction",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/leaves/log.gd"
+"path": "res://addons/beehave/src/nodes/leaves/log.gd"
 }, {
 "base": "Composite",
 "class": "Selector",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/composites/selector.gd"
+"path": "res://addons/beehave/src/nodes/composites/selector.gd"
 }, {
 "base": "Composite",
 "class": "SelectorStar",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/composites/selector_star.gd"
+"path": "res://addons/beehave/src/nodes/composites/selector_star.gd"
 }, {
 "base": "Composite",
 "class": "Sequence",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/composites/sequence.gd"
+"path": "res://addons/beehave/src/nodes/composites/sequence.gd"
 }, {
 "base": "Composite",
 "class": "SequenceStar",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/composites/sequence_star.gd"
+"path": "res://addons/beehave/src/nodes/composites/sequence_star.gd"
 }, {
 "base": "Action",
 "class": "WaitAction",
 "language": "GDScript",
-"path": "res://addons/beehave/nodes/leaves/wait.gd"
+"path": "res://addons/beehave/src/nodes/leaves/wait.gd"
 } ]
 _global_script_class_icons={
 "Action": "",
@@ -121,6 +126,7 @@ _global_script_class_icons={
 "Composite": "res://addons/beehave/icons/category_composite.svg",
 "Condition": "res://addons/beehave/icons/condition.svg",
 "Decorator": "res://addons/beehave/icons/category_decorator.svg",
+"HFSM": "res://addons/hfsm/icons/statemachine.svg",
 "Inverter": "res://addons/beehave/icons/inverter.svg",
 "Leaf": "res://addons/beehave/icons/action.svg",
 "Limiter": "res://addons/beehave/icons/limiter.svg",
@@ -129,7 +135,7 @@ _global_script_class_icons={
 "SelectorStar": "res://addons/beehave/icons/selector_star.svg",
 "Sequence": "res://addons/beehave/icons/sequencer.svg",
 "SequenceStar": "res://addons/beehave/icons/sequencer_star.svg",
-"WaitAction": ""
+"WaitAction": "res://addons/beehave/icons/wait.svg"
 }
 
 [application]
@@ -143,7 +149,7 @@ window/size/height=500
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/beehave/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/beehave/plugin.cfg", "res://addons/hfsm/plugin.cfg" )
 
 [gui]
 

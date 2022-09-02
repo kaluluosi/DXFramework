@@ -1,5 +1,5 @@
 extends Action
-const Bee = preload("res://demo/beehave/entity/Bee.gd")
+const Bee = preload("res://demo/beehave/entity/bee.gd")
 
 export var key:String
 

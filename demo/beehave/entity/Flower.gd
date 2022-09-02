@@ -1,5 +1,6 @@
 extends Area2D
-const Bee = preload("res://demo/beehave/entity/Bee.gd")
+const Bee = preload("res://demo/beehave/entity/bee.gd")
+const IndicatorTscn = preload("res://demo/beehave/ui/indicator.tscn")
 
 enum State{
 	GROW,
@@ -62,9 +63,12 @@ func _on_SuckTimer_timeout() -> void:
 	var real_amount = min(bee_can_take, amount)
 	honey -= real_amount
 	_bee.honey += real_amount
-	print_debug('flower -%s = %s'%[real_amount, honey])
-	print_debug('bee +%s = %s'%[real_amount, _bee.honey])
-
+#	print_debug('flower -%s = %s'%[real_amount, honey])
+#	print_debug('bee +%s = %s'%[real_amount, _bee.honey])
+	var indicator = IndicatorTscn.instance()
+	indicator.value = real_amount
+	indicator.global_position = global_position
+	get_tree().current_scene.add_child(indicator)
 
 	if honey <= 0 or _bee.is_full():
 		suck_timer.stop()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://addons/beehave/debug/BeehaveDebug.gd" type="Script" id=1]
+[ext_resource path="res://addons/beehave/debug/beehave_debug.gd" type="Script" id=1]
 
 [node name="BeehaveDebug" type="Label"]
 margin_right = 40.0

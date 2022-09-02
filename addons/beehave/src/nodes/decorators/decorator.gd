@@ -1,6 +1,6 @@
 extends BeehaveNode
 
-class_name Decorator,  '../../icons/category_decorator.svg'
+class_name Decorator,  "res://addons/beehave/icons/category_decorator.svg"
 
 
 func _ready():

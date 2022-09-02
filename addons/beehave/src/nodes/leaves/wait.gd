@@ -1,4 +1,4 @@
-class_name WaitAction
+class_name WaitAction, "res://addons/beehave/icons/wait.svg"
 extends Action
 
 export var wait_time:float = 1

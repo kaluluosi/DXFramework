@@ -1,6 +1,6 @@
 extends Decorator
 
-class_name Inverter,  '../../icons/inverter.svg'
+class_name Inverter,  "res://addons/beehave/icons/inverter.svg"
 
 
 func tick(action, blackboard):

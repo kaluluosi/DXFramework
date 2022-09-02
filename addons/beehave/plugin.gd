@@ -1,7 +1,7 @@
 tool
 extends EditorPlugin
 
-const Blackboard = preload('blackboard.gd')
+const Blackboard = preload("res://addons/beehave/src/blackboard.gd")
 
 func _init():
 	print("Beehave initialized!")

@@ -1,6 +1,6 @@
 extends Composite
 
-class_name Sequence,  '../../icons/sequencer.svg'
+class_name Sequence,  "res://addons/beehave/icons/sequencer.svg"
 
 func tick(actor, blackboard):
 

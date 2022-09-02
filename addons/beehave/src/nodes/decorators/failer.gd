@@ -1,6 +1,6 @@
 extends Decorator
 
-class_name AlwaysSucceed,  '../../icons/succeed.svg'
+class_name AlwaysFail, "res://addons/beehave/icons/fail.svg"
 
 
 func tick(action, blackboard):
@@ -8,4 +8,4 @@ func tick(action, blackboard):
 		var response = c.tick(action, blackboard)
 		if response == RUNNING:
 			return RUNNING
-		return SUCCESS
+	return FAILURE

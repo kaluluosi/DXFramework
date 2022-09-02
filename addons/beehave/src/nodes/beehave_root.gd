@@ -1,7 +1,7 @@
 tool
 extends BeehaveTree
 
-class_name BeehaveRoot,  '../icons/tree.svg'
+class_name BeehaveRoot, "res://addons/beehave/icons/tree.svg"
 
 enum {
 SUCCESS = 0

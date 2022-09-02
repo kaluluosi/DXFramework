@@ -4,7 +4,7 @@
 # FAILED or SUCCEEDED
 extends Composite
 
-class_name SelectorStar,  '../../icons/selector_star.svg'
+class_name SelectorStar,  "res://addons/beehave/icons/selector_star.svg"
 
 
 var last_execution_index = 0

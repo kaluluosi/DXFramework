@@ -1,8 +1,8 @@
 extends Condition
 
 
-const Bee = preload("res://demo/beehave/entity/Bee.gd")
-const Flower = preload('res://demo/beehave/entity/Flower.gd')
+const Bee = preload("res://demo/beehave/entity/bee.gd")
+const Flower = preload('res://demo/beehave/entity/flower.gd')
 
 export(Flower.State) var state = Flower.State.GROW
 

@@ -3,7 +3,7 @@
 
 extends Composite
 
-class_name SequenceStar,  '../../icons/sequencer_star.svg'
+class_name SequenceStar,  "res://addons/beehave/icons/sequencer_star.svg"
 
 var successful_index = 0
 

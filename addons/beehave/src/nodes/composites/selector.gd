@@ -1,6 +1,6 @@
 extends Composite
 
-class_name Selector,  '../../icons/selector.svg'
+class_name Selector,  "res://addons/beehave/icons/selector.svg"
 
 func tick(actor, blackboard):
 	for c in get_children():

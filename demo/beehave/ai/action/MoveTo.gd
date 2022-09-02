@@ -1,5 +1,6 @@
 extends Action
-const Bee = preload("res://demo/beehave/entity/Bee.gd")
+const Bee = preload("res://demo/beehave/entity/bee.gd")
+const Flower = preload('res://demo/beehave/entity/flower.gd')
 
 export var key:String
 export var distance:float = 10
