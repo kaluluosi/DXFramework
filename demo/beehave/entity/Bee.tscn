@@ -67,22 +67,22 @@ actor_node_path = NodePath("..")
 [node name="Main" type="Node" parent="BeehaveRoot"]
 script = ExtResource( 9 )
 
-[node name="GatherIfFoundFlower" type="Node" parent="BeehaveRoot/Main"]
+[node name="Gather" type="Node" parent="BeehaveRoot/Main"]
 script = ExtResource( 12 )
 
-[node name="Inverter" type="Node" parent="BeehaveRoot/Main/GatherIfFoundFlower"]
+[node name="Inverter" type="Node" parent="BeehaveRoot/Main/Gather"]
 script = ExtResource( 10 )
 
-[node name="IsFull" parent="BeehaveRoot/Main/GatherIfFoundFlower/Inverter" instance=ExtResource( 13 )]
+[node name="IsFull" parent="BeehaveRoot/Main/Gather/Inverter" instance=ExtResource( 13 )]
 
-[node name="FindClosestFlower" parent="BeehaveRoot/Main/GatherIfFoundFlower" instance=ExtResource( 8 )]
+[node name="FindClosestFlower" parent="BeehaveRoot/Main/Gather" instance=ExtResource( 8 )]
 key = "closest_flower"
 
-[node name="MoveToFlower" parent="BeehaveRoot/Main/GatherIfFoundFlower" instance=ExtResource( 7 )]
+[node name="MoveToFlower" parent="BeehaveRoot/Main/Gather" instance=ExtResource( 7 )]
 key = "closest_flower"
 distance = 1.0
 
-[node name="GatherHoney" parent="BeehaveRoot/Main/GatherIfFoundFlower" instance=ExtResource( 4 )]
+[node name="GatherHoney" parent="BeehaveRoot/Main/Gather" instance=ExtResource( 4 )]
 key = "closest_flower"
 
 [node name="GoHome" type="Node" parent="BeehaveRoot/Main"]
