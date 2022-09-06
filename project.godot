@@ -39,11 +39,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/beehave/src/nodes/beehave_tree.gd"
 }, {
-"base": "Reference",
-"class": "Blackboard",
-"language": "GDScript",
-"path": "res://addons/beehave/src/blackboard.gd"
-}, {
 "base": "Condition",
 "class": "CheckBlackboard",
 "language": "GDScript",
@@ -136,7 +131,6 @@ _global_script_class_icons={
 "BeehaveNode": "res://addons/beehave/icons/action.svg",
 "BeehaveRoot": "res://addons/beehave/icons/tree.svg",
 "BeehaveTree": "res://addons/beehave/icons/icon.png",
-"Blackboard": "",
 "CheckBlackboard": "",
 "Composite": "res://addons/beehave/icons/category_composite.svg",
 "Condition": "res://addons/beehave/icons/condition.svg",
