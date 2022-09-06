@@ -37,17 +37,19 @@ func _process(delta):
 	if Engine.editor_hint:
 		return
 
-	if process_mode == ProcessMode.IDLE and enabled:
+	if process_mode == ProcessMode.IDLE:
 		tick(delta)
 
 func _physics_process(delta):
 	if Engine.editor_hint:
 		return
 
-	if process_mode == ProcessMode.PHYSICS_PROCESS and enabled:
+	if process_mode == ProcessMode.PHYSICS_PROCESS :
 		tick(delta)
 
 func tick(delta):
+	if not enabled:
+		return
 
 	blackboard.delta = delta
 
