@@ -9,7 +9,7 @@ enum Check {
 export var key:String
 export(Check) var check = Check.NOT_NULL
 
-func tick(actor, blackboard:Blackboard) -> int:
+func tick(actor, blackboard:Dictionary) -> int:
 
 	match check:
 		Check.NOT_NULL:

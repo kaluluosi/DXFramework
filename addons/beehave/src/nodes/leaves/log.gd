@@ -4,6 +4,6 @@ extends Action
 export(String, MULTILINE) var text:String = 'hello'
 
 
-func tick(actor, blackboard:Blackboard) -> int:
+func tick(actor, blackboard:Dictionary) -> int:
 	print_debug(text)
 	return SUCCESS

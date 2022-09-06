@@ -15,21 +15,19 @@ enum ProcessMode {
 	MANUAL
 }
 
-export (bool) var enabled = false setget set_enable
+export (bool) var enabled = false
 export (NodePath) var actor_node_path
 export (ProcessMode) var process_mode = ProcessMode.PHYSICS_PROCESS
 
 var actor : Node
 
-onready var blackboard = Blackboard.new()
+onready var blackboard:Dictionary = {}
 
 func _ready():
 	if Engine.editor_hint:
 		return
 
 	assert(get_child_count(), 'Beehave error: Root should have one child')
-
-	set_enable(enabled)
 
 	actor = get_parent()
 	if actor_node_path:
@@ -39,36 +37,36 @@ func _process(delta):
 	if Engine.editor_hint:
 		return
 
-	if process_mode == ProcessMode.IDLE:
+	if process_mode == ProcessMode.IDLE and enabled:
 		tick(delta)
 
 func _physics_process(delta):
 	if Engine.editor_hint:
 		return
 
-	if process_mode == ProcessMode.PHYSICS_PROCESS:
+	if process_mode == ProcessMode.PHYSICS_PROCESS and enabled:
 		tick(delta)
 
 func tick(delta):
 
-	blackboard.set("delta", delta)
+	blackboard.delta = delta
 
 	var status = self.get_child(0).tick(actor, blackboard)
 
 	if status != RUNNING:
-		blackboard.set("__running_action", null)
+		blackboard["__running_action"] = null
 
-func get___running_action():
+func get_running_action():
 	if blackboard.has("__running_action"):
 		return blackboard.get("__running_action")
 	return null
 
-func get___last_condition():
+func get_last_condition():
 	if blackboard.has("__last_condition"):
 		return blackboard.get("__last_condition")
 	return null
 
-func get___last_condition_status():
+func get_last_condition_status():
 	if blackboard.has("__last_condition_status"):
 		var status = blackboard.get("__last_condition_status")
 		if status == SUCCESS:
@@ -78,17 +76,6 @@ func get___last_condition_status():
 		else:
 			return "RUNNING"
 	return ""
-
-func set_enable(value):
-	if value:
-		enabled = true
-		set_process(self.enabled)
-		set_physics_process(self.enabled)
-	else:
-		enabled = false
-		set_process(self.enabled)
-		set_physics_process(self.enabled)
-
 
 
 func _get_configuration_warning() -> String:
