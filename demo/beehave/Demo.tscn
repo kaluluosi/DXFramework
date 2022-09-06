@@ -16,6 +16,9 @@ position = Vector2( 169, 440 )
 z_index = 100
 speed = 100
 
+[node name="BeehaveRoot" parent="Bee2" index="5"]
+enabled = false
+
 [node name="Bee3" parent="." groups=["Bee"] instance=ExtResource( 2 )]
 position = Vector2( 50, 247 )
 z_index = 100
@@ -35,3 +38,5 @@ position = Vector2( 392, 72 )
 
 [node name="Home" parent="." groups=["Home"] instance=ExtResource( 1 )]
 position = Vector2( 32, 444 )
+
+[editable path="Bee2"]

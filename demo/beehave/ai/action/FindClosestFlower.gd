@@ -5,7 +5,7 @@ const Flower = preload('res://demo/beehave/entity/flower.gd')
 export var key:String
 export(Flower.State) var state = Flower.State.GROW
 
-func tick(actor:Bee, blackboard:Blackboard) -> int:
+func tick(actor:Bee, blackboard:Dictionary) -> int:
 
 	var flowers = actor.get_flowers()
 	if not flowers:
@@ -20,5 +20,5 @@ func tick(actor:Bee, blackboard:Blackboard) -> int:
 			distance = dist
 			closest = f
 
-	blackboard.set(key, closest)
+	blackboard[key] = closest
 	return SUCCESS

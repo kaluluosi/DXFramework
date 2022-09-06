@@ -4,7 +4,7 @@ export var wait_time_min:float = 1
 export var wait_time_max:float = 5
 var _timer:SceneTreeTimer
 
-func tick(actor, blackboard:Blackboard) -> int:
+func tick(actor, blackboard:Dictionary) -> int:
 	# 如果_timer为空则表示新一轮等待
 	if _timer == null:
 		_timer = get_tree().create_timer(rand_range(wait_time_min,wait_time_max))

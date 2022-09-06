@@ -6,7 +6,7 @@ const Flower = preload('res://demo/beehave/entity/flower.gd')
 
 export(Flower.State) var state = Flower.State.GROW
 
-func tick(actor:Bee, blackboard:Blackboard) -> int:
+func tick(actor:Bee, blackboard:Dictionary) -> int:
 
 	var flowers = get_tree().get_nodes_in_group('Flower')
 	for f in flowers:

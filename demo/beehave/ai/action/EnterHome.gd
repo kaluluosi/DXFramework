@@ -6,7 +6,7 @@ const Home = preload("res://demo/beehave/entity/home.gd")
 
 export var key:String
 
-func tick(actor:Bee, blackboard:Blackboard) ->int:
+func tick(actor:Bee, blackboard:Dictionary) ->int:
 
 	var home:Home = blackboard.get(key)
 	if not home:

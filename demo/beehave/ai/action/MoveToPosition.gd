@@ -4,7 +4,7 @@ const Bee = preload("res://demo/beehave/entity/bee.gd")
 export var key:String
 export var distance:float = 10
 
-func tick(actor:Bee, blackboard:Blackboard) -> int:
+func tick(actor:Bee, blackboard:Dictionary) -> int:
 
 	var pos = blackboard.get(key)
 	if pos:
