@@ -56,21 +56,21 @@ func tick(delta):
 	var status = self.get_child(0).tick(actor, blackboard)
 
 	if status != RUNNING:
-		blackboard.set("running_action", null)
+		blackboard.set("__running_action", null)
 
-func get_running_action():
-	if blackboard.has("running_action"):
-		return blackboard.get("running_action")
+func get___running_action():
+	if blackboard.has("__running_action"):
+		return blackboard.get("__running_action")
 	return null
 
-func get_last_condition():
-	if blackboard.has("last_condition"):
-		return blackboard.get("last_condition")
+func get___last_condition():
+	if blackboard.has("__last_condition"):
+		return blackboard.get("__last_condition")
 	return null
 
-func get_last_condition_status():
-	if blackboard.has("last_condition_status"):
-		var status = blackboard.get("last_condition_status")
+func get___last_condition_status():
+	if blackboard.has("__last_condition_status"):
+		var status = blackboard.get("__last_condition_status")
 		if status == SUCCESS:
 			return "SUCCESS"
 		elif status == FAILURE:

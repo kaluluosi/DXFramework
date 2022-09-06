@@ -109,6 +109,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/beehave/src/nodes/composites/sequence_star.gd"
 }, {
+"base": "HFSM",
+"class": "State",
+"language": "GDScript",
+"path": "res://addons/hfsm/src/state.gd"
+}, {
+"base": "HFSM",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://addons/hfsm/src/statemachine.gd"
+}, {
+"base": "State",
+"class": "SubStateMachine",
+"language": "GDScript",
+"path": "res://addons/hfsm/src/substatemachine.gd"
+}, {
 "base": "Action",
 "class": "WaitAction",
 "language": "GDScript",
@@ -135,6 +150,9 @@ _global_script_class_icons={
 "SelectorStar": "res://addons/beehave/icons/selector_star.svg",
 "Sequence": "res://addons/beehave/icons/sequencer.svg",
 "SequenceStar": "res://addons/beehave/icons/sequencer_star.svg",
+"State": "res://addons/hfsm/icons/state.svg",
+"StateMachine": "res://addons/hfsm/src/statemachine.gd",
+"SubStateMachine": "res://addons/hfsm/icons/substatemachine.svg",
 "WaitAction": "res://addons/beehave/icons/wait.svg"
 }
 

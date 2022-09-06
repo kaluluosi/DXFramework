@@ -15,14 +15,14 @@ func tick(actor, blackboard):
 		var response = c.tick(actor, blackboard)
 
 		if c is Condition:
-			blackboard.set("last_condition", c)
-			blackboard.set("last_condition_status", response)
+			blackboard.set("__last_condition", c)
+			blackboard.set("__last_condition_status", response)
 
 		if response != SUCCESS:
 			if response == FAILURE:
 				successful_index = 0
 			if c is Action and response == RUNNING:
-				blackboard.set("running_action", c)
+				blackboard.set("__running_action", c)
 			return response
 		else:
 			successful_index += 1

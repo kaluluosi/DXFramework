@@ -7,12 +7,12 @@ func tick(actor, blackboard):
 		var response = c.tick(actor, blackboard)
 
 		if c is Condition:
-			blackboard.set("last_condition", c)
-			blackboard.set("last_condition_status", response)
+			blackboard.set("__last_condition", c)
+			blackboard.set("__last_condition_status", response)
 
 		if response != FAILURE:
 			if c is Action and response == RUNNING:
-				blackboard.set("running_action", c)
+				blackboard.set("__running_action", c)
 			return response
 
 	return FAILURE
