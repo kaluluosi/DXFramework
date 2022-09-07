@@ -8,6 +8,3 @@ func _get_configuration_warning():
 		return "parent must be HFSM node"
 
 	return ""
-
-func transition_to(state_name:String):
-	get_parent().transition_to(state_name)

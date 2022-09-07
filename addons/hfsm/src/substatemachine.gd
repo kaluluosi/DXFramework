@@ -43,12 +43,14 @@ func get_active_state() -> State:
 func enter(actor:Node, blackboard:Dictionary):
 	if Engine.editor_hint:
 		return
+	
+	# transition_to 要用到actor，因此只好缓存了actor到成员变量
 	self.actor = actor
 	self.blackboard = blackboard
 	active_state = get_node(start_state_path)
 	active_state.enter(actor, blackboard)
 
-	print("{actor}  {state_machine}| enter >> {state}".format(
+	print_debug("{actor}  {state_machine}| enter >> {state}".format(
 		{
 			"actor":actor.name,
 			"state_machine":name,
@@ -60,7 +62,7 @@ func exit(actor:Node, blackboard:Dictionary):
 	if Engine.editor_hint:
 		return
 	active_state.exit(actor, blackboard)
-	print("{actor}  {state_machine}| {state} >> exit".format(
+	print_debug("{actor}  {state_machine}| {state} >> exit".format(
 		{
 			"actor":actor.name,
 			"state_machine":name,
@@ -81,8 +83,9 @@ func tick(actor:Node, blackboard:Dictionary, delta:float):
 func transition_to(state_name:String):
 	if active_state.name == state_name:
 		return
-
-	print("{actor}  {state_machine}| {from} >> {to}".format(
+	
+	# 这里要用到actor，因此只好缓存了actor到成员变量
+	print_debug("{actor}  {state_machine}| {from} >> {to}".format(
 		{
 			"actor":actor.name,
 			"state_machine":name,
