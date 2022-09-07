@@ -1,5 +1,5 @@
 extends MeshInstance2D
-const Bee = preload('res://demo/beehave/entity/bee.gd')
+const Bee = preload('res://demo/beehave/entity/Bee.gd')
 
 export var honey = 0
 onready var progressbar = $ProgressBar

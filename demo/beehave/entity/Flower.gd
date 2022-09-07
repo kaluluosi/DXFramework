@@ -1,6 +1,6 @@
 extends Area2D
-const Bee = preload("res://demo/beehave/entity/bee.gd")
-const IndicatorTscn = preload("res://demo/beehave/ui/indicator.tscn")
+const Bee = preload("res://demo/beehave/entity/Bee.gd")
+const IndicatorTscn = preload("res://demo/beehave/ui/Indicator.tscn")
 
 enum State{
 	GROW,

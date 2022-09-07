@@ -1,11 +1,11 @@
 [gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://demo/beehave/asset/bee.png" type="Texture" id=1]
-[ext_resource path="res://demo/beehave/entity/bee.gd" type="Script" id=2]
+[ext_resource path="res://demo/beehave/entity/Bee.gd" type="Script" id=2]
 [ext_resource path="res://demo/beehave/ai/action/RandomPosition.tscn" type="PackedScene" id=3]
 [ext_resource path="res://demo/beehave/ai/action/GatherHoney.tscn" type="PackedScene" id=4]
 [ext_resource path="res://demo/beehave/ai/action/MoveToPosition.tscn" type="PackedScene" id=5]
-[ext_resource path="res://addons/beehave/debug/beehave_debug.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/beehave/debug/BeehaveDebug.tscn" type="PackedScene" id=6]
 [ext_resource path="res://demo/beehave/ai/action/MoveTo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://demo/beehave/ai/action/FindClosestFlower.tscn" type="PackedScene" id=8]
 [ext_resource path="res://addons/beehave/src/nodes/composites/selector.gd" type="Script" id=9]

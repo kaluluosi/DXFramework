@@ -1,6 +1,8 @@
 extends Action
-const Bee = preload("res://demo/beehave/entity/bee.gd")
-const Flower = preload('res://demo/beehave/entity/flower.gd')
+const Bee = preload("res://demo/beehave/entity/Bee.gd")
+const Flower = preload('res://demo/beehave/entity/Flower.gd')
+const Home = preload("res://demo/beehave/entity/Home.gd")
+
 
 export var key:String
 export(Flower.State) var state = Flower.State.GROW
