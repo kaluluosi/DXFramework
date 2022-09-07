@@ -1,23 +1,6 @@
 [gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://demo/hfsm/asset/Adventurer_weapon.png" type="Texture" id=1]
-
-[sub_resource type="Animation" id=25]
-resource_name = "Attach_wall"
-length = 0.2
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 79, 80 ]
-}
+[ext_resource path="res://demo/hfsm/asset/Adventurer.png" type="Texture" id=1]
 
 [sub_resource type="Animation" id=15]
 resource_name = "Attack01"
@@ -70,25 +53,8 @@ tracks/0/keys = {
 "values": [ 53, 54, 55, 56, 57, 58 ]
 }
 
-[sub_resource type="Animation" id=26]
-resource_name = "Climb_rope"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 81, 82, 83, 84 ]
-}
-
 [sub_resource type="Animation" id=27]
-resource_name = "Climb_wall"
+resource_name = "Corner_climb"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -101,6 +67,40 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 33, 34, 35, 36, 37 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Corner_grab"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 29, 30, 31 ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "Corner_jump"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 77, 78 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -168,23 +168,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 69, 70, 71, 72 ]
-}
-
-[sub_resource type="Animation" id=11]
-resource_name = "Hang"
-length = 0.3
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 29, 30, 31 ]
 }
 
 [sub_resource type="Animation" id=1]
@@ -284,23 +267,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 17 ]
-}
-
-[sub_resource type="Animation" id=23]
-resource_name = "Jump_wall"
-length = 0.2
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 77, 78 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -417,6 +383,40 @@ tracks/0/keys = {
 "values": [ 61, 62, 63, 64, 65, 66, 67 ]
 }
 
+[sub_resource type="Animation" id=26]
+resource_name = "Wall_climb"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 81, 82, 83, 84 ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "Wall_slide"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 79, 80 ]
+}
+
 [sub_resource type="Animation" id=28]
 resource_name = "新建动画"
 tracks/0/type = "value"
@@ -440,25 +440,23 @@ hframes = 10
 vframes = 20
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Attach_wall = SubResource( 25 )
 anims/Attack01 = SubResource( 15 )
 anims/Attack01_air = SubResource( 18 )
 anims/Attack02 = SubResource( 16 )
 anims/Attack03 = SubResource( 17 )
-anims/Climb_rope = SubResource( 26 )
-anims/Climb_wall = SubResource( 27 )
+anims/Corner_climb = SubResource( 27 )
+anims/Corner_grab = SubResource( 11 )
+anims/Corner_jump = SubResource( 23 )
 anims/Crouch = SubResource( 2 )
 anims/Damage = SubResource( 19 )
 anims/Die = SubResource( 20 )
 anims/Draw = SubResource( 22 )
-anims/Hang = SubResource( 11 )
 anims/Idle = SubResource( 1 )
 anims/Idle_weapon = SubResource( 14 )
 anims/Jump_fall = SubResource( 6 )
 anims/Jump_rise = SubResource( 7 )
 anims/Jump_start = SubResource( 5 )
 anims/Jump_top = SubResource( 10 )
-anims/Jump_wall = SubResource( 23 )
 anims/RESET = SubResource( 3 )
 anims/Roll = SubResource( 8 )
 anims/Run = SubResource( 4 )
@@ -466,4 +464,6 @@ anims/Sheath = SubResource( 24 )
 anims/Slide = SubResource( 9 )
 anims/Slide2Idle = SubResource( 12 )
 anims/Stuck = SubResource( 21 )
+anims/Wall_climb = SubResource( 26 )
+anims/Wall_slide = SubResource( 25 )
 "anims/新建动画" = SubResource( 28 )
