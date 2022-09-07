@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Adventurer_weapon.png-6cc8bfafa8a9c5bf8edfb548736d6b85.stex"
+path="res://.import/adventurer_weapon.png-ed5abf95502e055967932c692c166c88.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://demo/hfsm/asset/Adventurer_weapon.png"
-dest_files=[ "res://.import/Adventurer_weapon.png-6cc8bfafa8a9c5bf8edfb548736d6b85.stex" ]
+source_file="res://demo/hfsm/asset/adventurer_weapon.png"
+dest_files=[ "res://.import/adventurer_weapon.png-ed5abf95502e055967932c692c166c88.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

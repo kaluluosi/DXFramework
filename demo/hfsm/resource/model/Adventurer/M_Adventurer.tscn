@@ -1,6 +1,6 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=51 format=2]
 
-[ext_resource path="res://demo/hfsm/asset/Adventurer.png" type="Texture" id=1]
+[ext_resource path="res://demo/hfsm/asset/adventurer_weapon.png" type="Texture" id=1]
 
 [sub_resource type="Animation" id=15]
 resource_name = "Attack01"
@@ -20,6 +20,19 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=18]
 resource_name = "Attack01_air"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 96, 97, 98 ]
+}
 
 [sub_resource type="Animation" id=16]
 resource_name = "Attack02"
@@ -37,6 +50,22 @@ tracks/0/keys = {
 "values": [ 47, 48, 49, 50, 51, 52 ]
 }
 
+[sub_resource type="Animation" id=29]
+resource_name = "Attack02_air"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 99, 100, 101 ]
+}
+
 [sub_resource type="Animation" id=17]
 resource_name = "Attack03"
 length = 0.6
@@ -51,6 +80,71 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 53, 54, 55, 56, 57, 58 ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "Attack03_air_fall"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 104, 105 ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "Attack03_air_land"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 106, 107, 108 ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "Attack03_air_start"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 102, 103 ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "Cast_spell"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 85, 86, 87, 88, 89, 90, 91, 92 ]
 }
 
 [sub_resource type="Animation" id=27]
@@ -120,9 +214,9 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=19]
-resource_name = "Damage"
-length = 0.3
+[sub_resource type="Animation" id=44]
+resource_name = "Crouch_walk"
+length = 0.6
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -131,10 +225,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 59, 60, 61 ]
+"values": [ 161, 162, 163, 164, 165, 166 ]
 }
 
 [sub_resource type="Animation" id=20]
@@ -170,6 +264,40 @@ tracks/0/keys = {
 "values": [ 69, 70, 71, 72 ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "Fall"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 22, 23 ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "Hurt"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 59, 60, 61, 62, 63, 64 ]
+}
+
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
 length = 0.4
@@ -202,23 +330,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 38, 39, 40, 41 ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "Jump_fall"
-length = 0.2
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 22, 23 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -269,6 +380,151 @@ tracks/0/keys = {
 "values": [ 17 ]
 }
 
+[sub_resource type="Animation" id=39]
+resource_name = "Kick01"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 128, 129, 130, 131, 132 ]
+}
+
+[sub_resource type="Animation" id=40]
+resource_name = "Kick02"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 133, 134, 135, 136 ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "Kick_drop"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 137, 138, 139, 140 ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "Kick_drop_fall"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 139, 140 ]
+}
+
+[sub_resource type="Animation" id=46]
+resource_name = "KnockDown"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 141, 142, 143, 144, 145, 146, 147, 148 ]
+}
+
+[sub_resource type="Animation" id=34]
+resource_name = "MortalDraw"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 93, 94, 95, 47, 48, 49, 50, 51, 52 ]
+}
+
+[sub_resource type="Animation" id=35]
+resource_name = "Punch01"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 109, 110, 111, 112 ]
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "Punch02"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 113, 114, 115, 116 ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "Punch03"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 117, 118, 119, 120, 121 ]
+}
+
 [sub_resource type="Animation" id=3]
 length = 0.001
 tracks/0/type = "value"
@@ -284,25 +540,8 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Roll"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 18, 19, 20, 21 ]
-}
-
 [sub_resource type="Animation" id=4]
-resource_name = "Run"
+resource_name = "Run01"
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -316,6 +555,40 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 8, 9, 10, 11, 12, 13 ]
+}
+
+[sub_resource type="Animation" id=50]
+resource_name = "Run01_weapon"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 194, 195, 196, 197, 198 ]
+}
+
+[sub_resource type="Animation" id=45]
+resource_name = "Run02"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 167, 168, 169, 170, 171, 172 ]
 }
 
 [sub_resource type="Animation" id=24]
@@ -332,6 +605,38 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 73, 74, 75, 76 ]
+}
+
+[sub_resource type="Animation" id=48]
+resource_name = "Shoot"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 179, 180, 181, 182, 183, 184, 185, 186, 187 ]
+}
+
+[sub_resource type="Animation" id=49]
+resource_name = "Shoot_air"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 188, 189, 190, 191, 192, 193 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -367,9 +672,9 @@ tracks/0/keys = {
 "values": [ 26, 27, 28 ]
 }
 
-[sub_resource type="Animation" id=21]
-resource_name = "Stuck"
-length = 0.7
+[sub_resource type="Animation" id=38]
+resource_name = "Smash"
+length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -377,10 +682,76 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 61, 62, 63, 64, 65, 66, 67 ]
+"values": [ 122, 123, 124, 125, 126, 127 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Somersault"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 18, 19, 20, 21 ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "StandUp"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 149, 150, 151, 152, 153, 154 ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "Stuck"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 63, 64, 65, 66, 67 ]
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "Walk"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 155, 156, 157, 158, 159, 160 ]
 }
 
 [sub_resource type="Animation" id=26]
@@ -400,6 +771,23 @@ tracks/0/keys = {
 "values": [ 81, 82, 83, 84 ]
 }
 
+[sub_resource type="Animation" id=47]
+resource_name = "Wall_run"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 173, 174, 175, 176, 177, 178 ]
+}
+
 [sub_resource type="Animation" id=25]
 resource_name = "Wall_slide"
 length = 0.2
@@ -417,21 +805,6 @@ tracks/0/keys = {
 "values": [ 79, 80 ]
 }
 
-[sub_resource type="Animation" id=28]
-resource_name = "新建动画"
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 85, 86, 87, 88, 89, 90, 91, 92 ]
-}
-
 [node name="model" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -443,27 +816,49 @@ vframes = 20
 anims/Attack01 = SubResource( 15 )
 anims/Attack01_air = SubResource( 18 )
 anims/Attack02 = SubResource( 16 )
+anims/Attack02_air = SubResource( 29 )
 anims/Attack03 = SubResource( 17 )
+anims/Attack03_air_fall = SubResource( 30 )
+anims/Attack03_air_land = SubResource( 32 )
+anims/Attack03_air_start = SubResource( 31 )
+anims/Cast_spell = SubResource( 28 )
 anims/Corner_climb = SubResource( 27 )
 anims/Corner_grab = SubResource( 11 )
 anims/Corner_jump = SubResource( 23 )
 anims/Crouch = SubResource( 2 )
-anims/Damage = SubResource( 19 )
+anims/Crouch_walk = SubResource( 44 )
 anims/Die = SubResource( 20 )
 anims/Draw = SubResource( 22 )
+anims/Fall = SubResource( 6 )
+anims/Hurt = SubResource( 19 )
 anims/Idle = SubResource( 1 )
 anims/Idle_weapon = SubResource( 14 )
-anims/Jump_fall = SubResource( 6 )
 anims/Jump_rise = SubResource( 7 )
 anims/Jump_start = SubResource( 5 )
 anims/Jump_top = SubResource( 10 )
+anims/Kick01 = SubResource( 39 )
+anims/Kick02 = SubResource( 40 )
+anims/Kick_drop = SubResource( 41 )
+anims/Kick_drop_fall = SubResource( 33 )
+anims/KnockDown = SubResource( 46 )
+anims/MortalDraw = SubResource( 34 )
+anims/Punch01 = SubResource( 35 )
+anims/Punch02 = SubResource( 36 )
+anims/Punch03 = SubResource( 37 )
 anims/RESET = SubResource( 3 )
-anims/Roll = SubResource( 8 )
-anims/Run = SubResource( 4 )
+anims/Run01 = SubResource( 4 )
+anims/Run01_weapon = SubResource( 50 )
+anims/Run02 = SubResource( 45 )
 anims/Sheath = SubResource( 24 )
+anims/Shoot = SubResource( 48 )
+anims/Shoot_air = SubResource( 49 )
 anims/Slide = SubResource( 9 )
 anims/Slide2Idle = SubResource( 12 )
+anims/Smash = SubResource( 38 )
+anims/Somersault = SubResource( 8 )
+anims/StandUp = SubResource( 42 )
 anims/Stuck = SubResource( 21 )
+anims/Walk = SubResource( 43 )
 anims/Wall_climb = SubResource( 26 )
+anims/Wall_run = SubResource( 47 )
 anims/Wall_slide = SubResource( 25 )
-"anims/新建动画" = SubResource( 28 )
