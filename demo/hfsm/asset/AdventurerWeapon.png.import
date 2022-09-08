@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/adventurer_weapon.png-ed5abf95502e055967932c692c166c88.stex"
+path="res://.import/AdventurerWeapon.png-2b74e45c3469acf0b0ed1d3364a5a898.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://demo/hfsm/asset/adventurer_weapon.png"
-dest_files=[ "res://.import/adventurer_weapon.png-ed5abf95502e055967932c692c166c88.stex" ]
+source_file="res://demo/hfsm/asset/AdventurerWeapon.png"
+dest_files=[ "res://.import/AdventurerWeapon.png-2b74e45c3469acf0b0ed1d3364a5a898.stex" ]
 
 [params]
 
