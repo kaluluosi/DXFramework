@@ -2,7 +2,7 @@
 
 [ext_resource path="res://demo/hfsm/entity/Character.gd" type="Script" id=1]
 [ext_resource path="res://addons/hfsm/src/statemachine.gd" type="Script" id=2]
-[ext_resource path="res://addons/hfsm/src/state.gd" type="Script" id=3]
+[ext_resource path="res://demo/hfsm/entity/state/Idle.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.0
@@ -28,4 +28,4 @@ actor_node_path = NodePath("..")
 start_state_path = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource( 3 )
+script = ExtResource( 5 )

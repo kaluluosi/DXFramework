@@ -7,14 +7,16 @@ signal transitioned(from, to)
 export(NodePath) var start_state_path
 
 var active_state:State setget _no_set,get_active_state
-var actor:Node
-var blackboard:Dictionary
 
 func _ready():
 	if Engine.editor_hint:
 		return
 	
 	assert(get_child_count(), 'StateMachine error: should have one state')
+	
+	for c in get_children():
+		c.actor = actor
+		c.blackboard = blackboard
 
 func _get_configuration_warning():
 	if start_state_path.is_empty():
@@ -40,7 +42,7 @@ func _no_set(value) -> void:
 func get_active_state() -> State:
 	return active_state
 
-func enter(actor:Node, blackboard:Dictionary):
+func enter():
 	if Engine.editor_hint:
 		return
 	
@@ -48,7 +50,7 @@ func enter(actor:Node, blackboard:Dictionary):
 	self.actor = actor
 	self.blackboard = blackboard
 	active_state = get_node(start_state_path)
-	active_state.enter(actor, blackboard)
+	active_state.enter()
 
 	print_debug("{actor}  {state_machine}| enter >> {state}".format(
 		{
@@ -58,10 +60,10 @@ func enter(actor:Node, blackboard:Dictionary):
 		}
 	))
 
-func exit(actor:Node, blackboard:Dictionary):
+func exit():
 	if Engine.editor_hint:
 		return
-	active_state.exit(actor, blackboard)
+	active_state.exit()
 	print_debug("{actor}  {state_machine}| {state} >> exit".format(
 		{
 			"actor":actor.name,
@@ -74,9 +76,9 @@ func exit(actor:Node, blackboard:Dictionary):
 
 # call it while MANUAL mode
 # 如果是手动模式，你需要手动调用这个
-func tick(actor:Node, blackboard:Dictionary, delta:float):
+func tick(delta:float):
 	if active_state:
-		active_state.tick(actor,blackboard,delta)
+		active_state.tick(delta)
 		_check_state()
 
 # 手动跳转
@@ -95,9 +97,9 @@ func transition_to(state_name:String):
 	))
 	var from = active_state.name
 	var to = state_name
-	active_state.exit(actor, blackboard)
+	active_state.exit()
 	active_state = get_node(state_name)
-	active_state.enter(actor,blackboard)
+	active_state.enter()
 	emit_signal('transitioned', from, to)
 	
 # 通过检查孩子的can_transition_to来条件驱动自动跳转

@@ -15,9 +15,7 @@ export(NodePath) var start_state_path
 
 export(ProcessMode) var process_mode = ProcessMode.PHYSICS_PROCESS
 
-var actor:Node
 var active_state:State setget _no_set,get_active_state
-var blackboard:Dictionary = {}
 
 func _ready():
 	if Engine.editor_hint:
@@ -26,8 +24,14 @@ func _ready():
 	assert(get_child_count(), 'StateMachine error: should have one state')
 	
 	actor = get_node(actor_node_path)
+	blackboard = {}
+	
+	for c in get_children():
+		c.actor = actor
+		c.blackboard = blackboard
+	
 	if enabled:
-		enter(actor, blackboard)
+		enter()
 
 func _get_configuration_warning():
 	if start_state_path.is_empty():
@@ -51,17 +55,17 @@ func set_enabled(value:bool):
 	enabled = value
 	if actor:
 		if enabled:
-			enter(actor,blackboard)
+			enter()
 		else:
-			exit(actor,blackboard)
+			exit()
 
 
-func enter(actor:Node, blackboard:Dictionary):
+func enter():
 	if Engine.editor_hint:
 		return
 	
 	active_state = get_node(start_state_path)
-	active_state.enter(actor, blackboard)
+	active_state.enter()
 
 	print("{actor}  {state_machine}| enter >> {state}".format(
 		{
@@ -71,10 +75,10 @@ func enter(actor:Node, blackboard:Dictionary):
 		}
 	))
 
-func exit(actor:Node, blackboard:Dictionary):
+func exit():
 	if Engine.editor_hint:
 		return
-	active_state.exit(actor, blackboard)
+	active_state.exit()
 	print("{actor}  {state_machine}| {state} >> exit".format(
 		{
 			"actor":actor.name,
@@ -87,9 +91,9 @@ func exit(actor:Node, blackboard:Dictionary):
 
 # call it while MANUAL mode
 # 如果是手动模式，你需要手动调用这个
-func tick(actor:Node, blackboard:Dictionary, delta:float):
+func tick(delta):
 	if active_state and enabled:
-		active_state.tick(actor,blackboard,delta)
+		active_state.tick(delta)
 		_check_state()
 
 # 手动跳转
@@ -107,9 +111,9 @@ func transition_to(state_name:String):
 	))
 	var from = active_state.name
 	var to = state_name
-	active_state.exit(actor, blackboard)
+	active_state.exit()
 	active_state = get_node(state_name)
-	active_state.enter(actor,blackboard)
+	active_state.enter()
 	emit_signal('transitioned', from, to)
 	
 # 通过检查孩子的can_transition_to来条件驱动自动跳转
@@ -123,12 +127,12 @@ func _process(delta):
 		return
 	
 	if process_mode == ProcessMode.IDLE:
-		tick(actor,blackboard,delta)
+		tick(delta)
 		
 func _physics_process(delta):
 	if Engine.editor_hint:
 		return
 	
 	if process_mode == ProcessMode.PHYSICS_PROCESS:
-		tick(actor,blackboard,delta)
+		tick(delta)
 

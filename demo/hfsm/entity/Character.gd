@@ -2,8 +2,12 @@ extends KinematicBody2D
 
 enum Gait{
 	Walk,
-	Run
+	Run,
+	Sprint
 }
+
+onready var stand_collisionshape = $StandCollisionShape
+onready var crouch_collisionshape = $CrouchCollisionShape
 
 # 各种状态下的最大速度
 export var max_walk_speed:float = 100
@@ -11,7 +15,7 @@ export var max_run_speed:float = 120
 export var max_sprint_speed:float = 240
 
 # 各种状态下的跳跃速度
-export var jump_speed = -270
+export var jump_speed = 270
 export var run_jump_speed = 300
 export var max_jump_count = 2
 
@@ -42,13 +46,14 @@ var accel:float = 500
 var deccel:float = 500
 var jump_count = 0
 var facing = 1
-var gait_mode = Gait.Run
+var gait_mode = Gait.Run setget _set_gait_mode
 
 # 标记
-var is_jump_pressed:bool = false
-var is_sprint_pressed:bool = false
-var is_crouch_pressed:bool = false
+var is_crouching:bool = false
 
+
+func _ready():
+	self.gait_mode = Gait.Run
 
 func _input(event):
 	
@@ -56,13 +61,24 @@ func _input(event):
 		'p1_left','p1_right',
 		'p1_up', 'p1_down'
 	)
-	
-	is_jump_pressed = Input.is_action_pressed("p1_jump")
-		
-	
+
+
+func _set_gait_mode(value):
+	gait_mode = value
+	match gait_mode:
+		Gait.Walk:
+			max_speed = max_walk_speed
+		Gait.Run:
+			max_speed = max_run_speed
+		Gait.Sprint:
+			max_speed = max_sprint_speed
+		_:
+			max_speed = max_walk_speed
+
 
 func get_default_gravity():
 	return ProjectSettings["physics/2d/default_gravity"]
+
 
 func _physics_process(delta):
 	velocity_process(delta)
@@ -97,6 +113,5 @@ func launch(launch_velocity:Vector2=Vector2.UP*jump_speed, x_override:bool=false
 
 
 func can_do_jump():
-	return jump_count<max_jump_count and is_on_floor()
-	
+	return jump_count<max_jump_count
 
